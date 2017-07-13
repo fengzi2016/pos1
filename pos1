@@ -1,5 +1,5 @@
 POS_V1
-#1:PART
+#1:SPLIT
 input:
 	all_collection:Array[string]
 output:
@@ -10,40 +10,38 @@ input:
 	barcode_more_collection:Array[{barcode:’123’,count:12}]
 output:
 	comput_count:Array[{barcode:’123’,count:12},{...}}]
-#3:COUNT_NUMBER
+#3:NEW_LIST
 input：
-	base_list: Array[{string}]
+	base_list: Array[{{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}}]
 	compute_count:Array[{barcode:’123’,count:12},{…}}]
-	barcode_more_collection:Array[{barcode:’123’,count:12}]
 output:
-	count_number:[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}]
+	new_list:[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}]
 #4:EVERY_SAVE_MONEY
 input:
 	count_number:[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}]
 	discount_collection:[string]
 output:
-	every_save_money:[number]
+	every_save_money:[{barcode:'123',money:12},{....}]
 #:5:All_SAVE_MONEY
 input:
-	every_save_money:[number]
+	every_save_money:[{barcode:'123',money:12},{....}]
 output:
 	all_save_money:Number
 #6:AFTER_SAVE_EVERY_SUM
 input:
-	discount_collection:[string]
-	every_save_money:[number]
+	every_save_money:[{barcode:'123',money:12},{....}]
 	count_number:Array[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}]
 output:
-	after_save_every_sum:Array[number]
+	every_save_money:[{barcode:'123',money:12},{....}]
 #7:All_SUM
 input:
-	after_save_every_sum:Array[number]
+	every_save_money:[{barcode:'123',money:12},{....}]
 output:
 	all_sum:Number
 #8:PRINT
 input:
 	count_number:Array[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{…}]
-	afrer_save_every_sum:Array[number]
+	every_save_money:[{barcode:'123',money:12},{....}]
 	all_sum:Number
 	all_save_money:Number
 output:
