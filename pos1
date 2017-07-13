@@ -1,0 +1,53 @@
+POS_V1
+#1:PART
+input:
+	all_collection:Array[string]
+output:
+	barcode_more_collection:Array[{barcode:’123’,count:12}]
+#2:COMPUTE_COUNT
+input:
+	all_collection:Array[string]
+	barcode_more_collection:Array[{barcode:’123’,count:12}]
+output:
+	comput_count:Array[{barcode:’123’,count:12},{...}}]
+#3:COUNT_NUMBER
+input：
+	base_list: Array[{string}]
+	compute_count:Array[{barcode:’123’,count:12},{…}}]
+	barcode_more_collection:Array[{barcode:’123’,count:12}]
+output:
+	count_number:[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}]
+#4:EVERY_SAVE_MONEY
+input:
+	count_number:[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}]
+	discount_collection:[string]
+output:
+	every_save_money:[number]
+#:5:All_SAVE_MONEY
+input:
+	every_save_money:[number]
+output:
+	all_save_money:Number
+#6:AFTER_SAVE_EVERY_SUM
+input:
+	discount_collection:[string]
+	every_save_money:[number]
+	count_number:Array[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{...}]
+output:
+	after_save_every_sum:Array[number]
+#7:All_SUM
+input:
+	after_save_every_sum:Array[number]
+output:
+	all_sum:Number
+#8:PRINT
+input:
+	count_number:Array[{barcode:’123’,count:12,name:’可口可乐’,unit:’瓶’,price:15}{…}]
+	afrer_save_every_sum:Array[number]
+	all_sum:Number
+	all_save_money:Number
+output:
+	Print:String
+	
+	
+	
